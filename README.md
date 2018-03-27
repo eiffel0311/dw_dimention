@@ -1,8 +1,8 @@
 # dw_dimention: for hive
 ## 1. d_date
 ```
-date_proxy_key     date_key1      date_key2           year      month   day      quarter_name    day_name_of_week
-20000101          2000_01_01     2000-01-01        2000       01           01             Q1             Saturday
+date_proxy_key     date_key1      date_key2      year      month   day      quarter_name    day_name_of_week
+20000101          2000_01_01     2000-01-01      2000       01     01             Q1         Saturday
 ```
 ### 1.1. cd script and run:
 ```
