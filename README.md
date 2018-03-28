@@ -43,6 +43,35 @@ load data local inpath '/data/warehouse/aif_test/d_date.csv' into table d_date;
 ```
 ## 2. d_time
 ```
-time_proxy_key     date_key1      date_key2      year      month   day      quarter_name    day_name_of_week
-115958          2000_01_01     2000-01-01      2000       01     01             Q1         Saturday
+time_proxy_key  time_24hour_key  hour_of_day_24 hour_of_day_12  am_pm   minute_of_hour  half_hour half_hour_of_day quarter_hour quarter_hour_of_day string_representation_24 string_representation_12 
+0                 24:00:00            0              12          AM         0               1~2         1~48         1~4            1~96                  00:00                    12:00 
+```
+### 1.1. cd script and run:
+```
+ python d_time.py
+ ```
+### 2.2  you will find file d_time.csv
+### 2.3   create table:
+```
+create table d_time(
+time_proxy_key            Int       comment '时间维度代理主键: 0~1439',
+time_24hour_key           String    comment '主键',
+hour_of_day_24            Int       comment '24时计时法: 0~23',
+hour_of_day_12            String    comment '12时计时法: 0~11',
+am_pm                     String    comment 'AM or PM',
+minute_of_hour            Int       comment '每小时的第几分钟: 0~59',
+half_hour                 Int       comment '把一小时分两份: 1~2',
+half_hour_of_day          Int       comment '把一小时分两份: 1~24',
+quarter_hour              Int       comment '把一小时分四份: 1~4',
+quarter_hour_of_day       Int       comment '把一小时分四份: 1~96',
+string_representation_24  String    comment '24时计时法字符串表示',
+string_representation_12  String    comment '12时计时法字符串表示'
+)
+row format delimited
+fields terminated by ' '
+stored as textfile
+```
+###  2.4 load data:
+```
+load data local inpath '/data/warehouse/aif_test/d_time.csv' into table d_time;
 ```
