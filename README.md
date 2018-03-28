@@ -1,12 +1,8 @@
 # dw_dimention: for hive
 ## 1. d_date
 ```
-* date_proxy_key     date_key1      date_key2        
-* 20000101           2000_01_01     2000-01-01
-	** full_date    date_name 
-	** 2000-01-01   2000/01/01
-        *** day_of_week    day_en_name_of_week     day_cn_name_of_week       day_of_month                          year      month   day      quarter_name    day_name_of_week                              
-        ***  2000-01-01    2000/01/01    
+date_proxy_key  date_key1   date_key2    full_date    data_name   day_of_week  day_of_month   day_of_year  week_of_year week_en_name  week_cn_name  month_of_year  month_cn_name  month_en_name   year_name  quarter_of_year  quarter_cn_name  quarter_en_name  calendar_year_month  calendar_year_quarter
+20000101        2000_01_01  2000-01-01   2000-01-01   2000-01-01       1             1              1            1        Saturday        星期六         1              一月         January          2000          1              第一季度          Q1               2017-01                 2017Q1
 ```
 ### 1.1. cd script and run:
 ```
