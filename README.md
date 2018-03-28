@@ -46,7 +46,7 @@ load data local inpath '/data/warehouse/aif_test/d_date.csv' into table d_date;
 time_proxy_key  time_24hour_key  hour_of_day_24 hour_of_day_12  am_pm   minute_of_hour  half_hour half_hour_of_day quarter_hour quarter_hour_of_day string_representation_24 string_representation_12 
 0                 24:00:00            0              12          AM         0               1~2         1~48         1~4            1~96                  00:00                    12:00 
 ```
-### 1.1. cd script and run:
+### 2.1. cd script and run:
 ```
  python d_time.py
  ```
