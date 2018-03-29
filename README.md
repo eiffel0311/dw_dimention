@@ -75,3 +75,27 @@ stored as textfile
 ```
 load data local inpath '/data/warehouse/aif_test/d_time.csv' into table d_time;
 ```
+
+## 3. d_region_city
+```
+region_city_proxy_key	city_name_key	  city_id  	city_cn_name	province_id 	porvince_cn_name
+110000                       北京市	     110000	    北京市	           110000	      北京市
+```
+### 3.1   create table:
+```
+create table d_region_city(
+region_city_proxy_key  String comment '城市维度代理主键',
+city_name_key	       String comment '主键:城市名字',
+city_id                String comment '六位城市ID',
+city_cn_name           String comment '城市中文名',
+province_id            String comment '六位省份ID',
+porvince_cn_name       String comment '城市中文名字'
+)
+row format delimited
+fields terminated by ' '
+stored as textfile
+```
+###  3.2 load data, find file d_region_city.csv in directory dementions, for details: http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/
+```
+load data local inpath '/data/warehouse/aif_test/d_region_city.csv' into table d_region_city;
+```
