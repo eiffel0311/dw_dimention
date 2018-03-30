@@ -88,7 +88,7 @@ region_city_proxy_key  String comment '城市维度代理主键',
 city_name_key	       String comment '主键:城市名字',
 city_id                String comment '六位城市ID',
 city_cn_name           String comment '城市中文名',
-province_id            String comment '六位省份ID',
+province_id            String comment '六位省份ID, 引用d_region_province.region_province_proxy_key',
 porvince_cn_name       String comment '城市中文名字'
 )
 row format delimited
@@ -98,4 +98,28 @@ stored as textfile
 ###  3.2 load data, find file d_region_city.csv in directory dementions, for details: http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/
 ```
 load data local inpath '/data/warehouse/aif_test/d_region_city.csv' into table d_region_city;
+```
+## 4. d_region_province
+```
+region_province_proxy_key  province_key province_name    province_id   province_for_short  region_name  region_id
+110000                     北京市            北京市        110000        BJ                  华北             1
+```
+### 4.1   create table:
+```
+create table d_region_province(
+region_province_proxy_key  String comment '省份维度代理主键',
+province_key	           String comment '主键:省份名字',
+province_name              String comment '省份名称',
+province_id                String comment '六位省份ID',
+province_for_short         String comment '省份简写',
+region_name                String comment '大区名字:1:华北,2:东北,3:华东,4:中南,5:西南,6:西北,7:港澳台',
+region_id                  String comment '大区ID:1:华北,2:东北,3:华东,4:中南,5:西南,6:西北,7:港澳台'  
+)
+row format delimited
+fields terminated by ' '
+stored as textfile
+```
+###  4.2 load data, find file d_region_province.csv in directory dementions
+```
+load data local inpath '/data/warehouse/aif_test/d_region_province.csv' into table d_region_province;
 ```
